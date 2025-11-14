@@ -7,7 +7,10 @@
 		"strict": true,
 		"moduleResolution": "node",
 		"esModuleInterop": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"useDefineForClassFields": false
 	},
 	"include": ["src"]
 }

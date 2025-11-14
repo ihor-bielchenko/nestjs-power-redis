@@ -1,6 +1,6 @@
 {
 	"name": "nestjs-power-redis",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "NestJS wrapper around PowerRedis that automatically binds to Redis clients provided by @nestjs-labs/nestjs-ioredis, ensuring full compatibility with PowerQueues, Lua scripts, and advanced Redis Stream operations.",
 	"author": "ihor-bielchenko",
 	"license": "MIT",
