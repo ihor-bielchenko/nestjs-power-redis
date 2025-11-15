@@ -1,5 +1,9 @@
-import { NestjsPowerRedis } from './NestjsPowerRedis';
+import { redisRoot } from './root';
+import { RedisModule } from './RedisModule';
+import { RedisService } from './RedisService';
 
 export {
-	NestjsPowerRedis,
+	redisRoot,
+	RedisModule,
+	RedisService,
 };
