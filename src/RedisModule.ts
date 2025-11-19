@@ -2,7 +2,6 @@ import {
 	DynamicModule, 
 	Module, 
 } from '@nestjs/common';
-import { RedisService as IoRedisService } from '@nestjs-labs/nestjs-ioredis';
 import { redisRoot } from './root';
 import { RedisService } from './RedisService';
 
@@ -18,7 +17,6 @@ export class RedisModule {
 				RedisService,
 			],
 			exports: [
-				IoRedisService,
 				RedisService,
 			],
 		};
