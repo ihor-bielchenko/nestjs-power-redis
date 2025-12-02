@@ -9,36 +9,30 @@ import { isFunc } from 'full-utils';
 
 @Injectable()
 export class RedisService extends PowerRedis {
-	public readonly logger: Logger = new Logger('RedisService');
+	public readonly logger = new Logger('RedisService');
 	public redis!: IORedisLike;
-	public readonly redisClientName: string = 'queues';
 
-	constructor(
-		private readonly redisService: IoRedisService,
-	) {
+	constructor(private readonly redisService: IoRedisService) {
 		super();
-		this.provideRedisConnection();
 	}
 
-	private provideRedisConnection() {
-		const redisClientName = process.env.REDIS_CLIENT_NAME ?? 'queues';
-		const map: Map<string, any> | undefined = (this.redisService as any).clients;
+	private pickConnection(name: string) {
+		const clients: Map<string, any> = (this.redisService as any).clients;
+		
+		return clients.get(name);
+	}
 
-		if (!map?.size) {
-			throw new Error('No Redis clients available in RedisService.');
-		}
-		const redis = this.selectRedisConnection(map, redisClientName) ?? this.selectRedisConnection(map);
+	createScopedService(name: string): RedisService {
+		const instance = new RedisService(this.redisService);
+		const redis = this.pickConnection(name);
 
 		if (!redis) {
-			throw new Error(`Invalid Redis client "${redisClientName}".`);
+			throw new Error(`Redis client "${name}" not found.`);
 		}
-		this.redis = redis;
-		this.logger.log?.(`Using Redis client: ${redisClientName in (map as any) ? redisClientName : '[first available]'}`);
-	}
+		(instance as any).redis = redis;
+		
+		instance.logger.log(`Using Redis client: ${name}`);
 
-	private selectRedisConnection(map: Map<string, any>, name?: string): IORedisLike | undefined {
-		const definedClient = name ? map.get?.(name) : map.values?.().next?.().value;
-
-		return (definedClient && isFunc((definedClient as any).defineCommand) && isFunc((definedClient as any).xgroup)) ? definedClient as IORedisLike : undefined;
+		return instance;
 	}
 }

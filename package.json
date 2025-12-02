@@ -1,6 +1,6 @@
 {
 	"name": "nestjs-power-redis",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "NestJS wrapper for PowerRedis.",
 	"author": "ihor-bielchenko",
 	"license": "MIT",
@@ -96,7 +96,7 @@
 	"dependencies": {
 		"@nestjs-labs/nestjs-ioredis": "^11.0.4",
 		"@nestjs/common": "^11.1.8",
-		"full-utils": "^2.0.3",
-		"power-redis": "^2.0.6"
+		"full-utils": "^2.0.5",
+		"power-redis": "^2.0.8"
 	}
 }
