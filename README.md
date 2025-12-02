@@ -64,7 +64,7 @@ TLS fields are optional.
 
 ---
 
-## 📚 Quick Start Example
+## 🧪 Quick Start Example
 
 ### 1. Register module with multiple Redis clients
 
@@ -109,7 +109,7 @@ export class MyService {
 
 ---
 
-## 🔧 How It Works Internally
+## 🏗️ How It Works Internally
 
 ### redisRoot()
 Loads all Redis configurations based on environment variables, applies TLS if present, and sets reconnection strategies.
@@ -129,6 +129,6 @@ These providers are available through:
 
 ---
 
-## 📝 License
+## 📜 License
 
 MIT - free for commercial and private use.
