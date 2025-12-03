@@ -4,6 +4,35 @@ This module is a **dedicated, production-ready NestJS wrapper around `power-redi
 
 It is a **structured, type-safe, and feature-rich integration** designed specifically to bring all the power of `power-redis` into the NestJS ecosystem with zero friction.
 
+<p align="center">
+  <img src="https://img.shields.io/badge/redis-streams-red?logo=redis" />
+  <img src="https://img.shields.io/badge/nodejs-queue-green?logo=node.js" />
+  <img src="https://img.shields.io/badge/typescript-ready-blue?logo=typescript" />
+  <img src="https://img.shields.io/badge/license-MIT-lightgrey" />
+  <img src="https://img.shields.io/badge/nestjs-support-ea2845?logo=nestjs" />
+  <img src="https://img.shields.io/badge/status-production-success" />
+</p>
+
+---
+
+## 📚 Documentation
+
+Full documentation is available here:  
+👉 **https://nestjs-power-redis.docs.ihor.bielchenko.com**
+
+---
+
+# 📦 Installation
+
+``` bash
+npm install nestjs-power-redis
+```
+OR
+```bash
+yarn add nestjs-power-redis
+```
+---
+
 ## 🚀 What This Library Does
 
 ### ✔ Multi‑Redis support  
@@ -22,12 +51,6 @@ You get:
 - Consistent key formatting  
 - List operations + stream helpers  
 - Automatic reconnection strategies
-
-# 📦 Installation
-
-```bash
-npm install nestjs-power-redis
-```
 
 # 🧪 Quick Start Example
 
