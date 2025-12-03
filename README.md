@@ -15,7 +15,7 @@ Secure your Redis connections using certificates without needing custom code.
 ### ✔ Zero configuration boilerplate  
 All Redis connection settings are loaded from environment variables automatically.
 
-### ✔ Built on top of `PowerRedis`  
+### ✔ Built on top of `power-redis`  
 You get:
 - Safer key/value helpers  
 - JSON handling  
@@ -29,7 +29,11 @@ You get:
 npm install nestjs-power-redis
 ```
 
-# 🔐 Environment Variables (PowerRedis-Friendly)
+# 🧪 Quick Start Example
+
+## For example, you need to specify 2 connections: `queues` and `cache`
+
+### 1. 🔐 Environment Variables (power-redis -Friendly)
 
 Everything is configured using environment variables:
 
@@ -45,7 +49,7 @@ REDIS_<NAME>_TLS_KEY=/etc/ssl/client.key
 REDIS_<NAME>_TLS_CA_CRT=/etc/ssl/ca.crt
 ```
 
-Instead of `<NAME>` you need to specify a custom connection name.
+Instead of `<NAME>` you need to specify a custom connection name and then specify these names in `RedisModule.forRoot` (allowed in lowercase).
 For example:
 
 ```env
@@ -64,9 +68,7 @@ TLS fields are optional.
 
 ---
 
-## 🧪 Quick Start Example
-
-### 1. Register module with multiple Redis clients
+### 2. Register module with multiple Redis clients
 
 ```ts
 import { RedisModule } from 'nestjs-power-redis';
@@ -81,7 +83,7 @@ export class AppModule {}
 
 ---
 
-### 2. Inject Redis in a service
+### 3. Inject Redis in a service
 
 ```ts
 import { Injectable } from '@nestjs/common';
