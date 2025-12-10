@@ -3,7 +3,7 @@ import { RedisModule } from '@nestjs-labs/nestjs-ioredis';
 import { Logger } from '@nestjs/common';
 import {
 	isStrFilled,
-	formatToNum,
+	numNormalize,
 } from 'full-utils';
 
 const env = (k: string) => process.env[k];
@@ -16,9 +16,9 @@ export function redisRoot(names: string[]) {
 			config: names.map((name) => {
 				const optionKey = `REDIS_${name.toUpperCase()}`;
 				const host = env(`${optionKey}_HOST`) ?? '127.0.0.1';
-				const port = formatToNum(env(`${optionKey}_PORT`) ?? 6379);
+				const port = numNormalize(env(`${optionKey}_PORT`) ?? 6379);
 				const password = env(`${optionKey}_PASSWORD`);
-				const database = formatToNum(env(`${optionKey}_DATABASE`) ?? 0);
+				const database = numNormalize(env(`${optionKey}_DATABASE`) ?? 0);
 				const tlsCrt = env(`${optionKey}_TLS_CRT`);
 				const tlsCaCrt = env(`${optionKey}_TLS_CA_CRT`);
 				const tlsKey = env(`${optionKey}_TLS_KEY`);
