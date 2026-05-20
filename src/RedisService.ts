@@ -2,7 +2,6 @@ import { RedisService as IoRedisService } from '@nestjs-labs/nestjs-ioredis';
 import { Injectable } from '@nestjs/common';
 import type { IORedisLike } from 'power-redis';
 import { PowerRedis } from 'power-redis';
-import { isFunc } from 'full-utils';
 
 @Injectable()
 export class RedisService extends PowerRedis {
