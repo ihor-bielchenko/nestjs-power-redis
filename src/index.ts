@@ -1,15 +1,5 @@
-import { redisRoot } from './root';
-import { RedisModule } from './RedisModule';
-import { RedisService } from './RedisService';
-import { 
-	getRedisToken,
-	InjectRedis, 
-} from './InjectRedis';
-
-export {
-	redisRoot,
-	RedisModule,
-	RedisService,
-	getRedisToken,
-	InjectRedis,
-};
+export * from 'power-redis';
+export * from './root';
+export * from './RedisModule';
+export * from './RedisService';
+export * from './InjectRedis';
